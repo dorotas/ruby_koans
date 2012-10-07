@@ -2,15 +2,12 @@ require File.expand_path(File.dirname(__FILE__) + '/edgecase')
 
 # Implement a DiceSet Class here:
 #
-# class DiceSet
-#   code ...
-# end
-
-#--
 class DiceSet
-  attr_reader :values
+  attr_accessor :values
+
   def roll(n)
-    @values = (1..n).map { rand(6) + 1 }
+    @values = []
+    n.times { @values << 1 + rand(6) }
   end
 end
 
