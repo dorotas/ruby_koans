@@ -17,7 +17,7 @@ def triangle(a, b, c)
   case [a,b,c].uniq.size
     when 1 then :equilateral
     when 2 then :isosceles
-    when 3 then :scalene
+    else        :scalene
   end
 
   a, b, c = [a, b, c].sort
