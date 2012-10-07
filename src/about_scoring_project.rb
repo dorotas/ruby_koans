@@ -37,23 +37,29 @@ def score(dice)
   no_of_ones = dice.find_all do
     |one| one == 1
   end
-  if no_of_ones >= 3
-    result = result + 1000 + (no_of_ones-3)*100
+  if no_of_ones.size >= 3
+    result = result + 1000 + (no_of_ones.size-3)*100
+  end
+  if no_of_ones.size < 3
+    result = result + (no_of_ones.size)*100
   end
   no_of_fives = dice.find_all do
     |five| five == 5
   end
-  if no_of_fives >= 3
-    result = result + 500 + (no_of_fives-3)*50
+  if no_of_fives.size >= 3
+    result = result + 500 + (no_of_fives.size-3)*50
+  end
+  if no_of_fives.size < 3
+    result = result + + (no_of_fives.size)*50
   end
   no2 = dice.find_all {|two| two == 2}
-  result += 200 if no2 >=3
+  result += 200 if no2.size >=3
   no3 = dice.find_all {|three| three == 3}
-  result += 300 if no3 >=3
+  result += 300 if no3.size >=3
   no4 = dice.find_all {|four| four == 4}
-  result += 400 if no4 >=3
+  result += 400 if no4.size >=3
   no6 = dice.find_all {|six| six == 6}
-  result += 600 if no6 >=3
+  result += 600 if no6.size >=3
   result
 end
 
